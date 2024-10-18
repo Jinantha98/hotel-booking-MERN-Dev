@@ -4,6 +4,9 @@ import userRouter from './routes/usersRoute.js'
 import mongoose from 'mongoose'
 import galleryItemRouter from './routes/galleryItemRoute.js'
 import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
+
+dotenv.config();
 const app = express();
 
 app.use(bodyParser.json());

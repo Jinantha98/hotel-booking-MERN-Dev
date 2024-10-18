@@ -63,7 +63,7 @@ export function loginUser(req,res){
                     lastName : user.lastName,
                     type :user.type
                 };
-                const token = jwt.sign(payload, JWT_KEY, {expiresIn: "48h"});
+                const token = jwt.sign(payload, process.env.JWT_KEY, {expiresIn: "48h"});
 
 
                 res.json({

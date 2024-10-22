@@ -21,7 +21,8 @@ export function createCategory(req,res){
         (result)=>{
             res.json(
                 {
-                    message : "Category created sucessfully"
+                    message : "Category created sucessfully",
+                    result :result
                 }
             )
         }
@@ -29,10 +30,24 @@ export function createCategory(req,res){
         (err)=>{
             res.json(
                 {
-                    message : "Category creation failed"
+                    message : "Category creation failed",
+                    err : err
                 }
             )
         }
     )
 
+}
+
+// get category 
+
+export function getCategory(req, res) {
+    Category.find()
+        .then((list) => {
+            res.json({ list });
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).json({ message: "Failed to retrieve categories", error });
+        });
 }

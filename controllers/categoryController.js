@@ -1,5 +1,5 @@
 import Category from "../models/category.js";
-
+import { isAdminValid } from "./usercontrollers.js";
 
 // Create a new category
 export function createCategory(req,res){
@@ -120,9 +120,9 @@ export function deleteCategory(req, res) {
 
 // Update Category
 
-/*export function updateCategory(req,res){
+export function updateCategory(req,res){
 
-    if(!adminValid(req)){
+    if(!isAdminValid(req)){
         res.status(403).json({
             message : "Unauthorized"
         })
@@ -144,8 +144,8 @@ export function deleteCategory(req, res) {
             }
         )
 }
-*/
- export function updateCategory(req, res) {
+
+/* export function updateCategory(req, res) {
   
     if (!req.user) {
         return res.status(401).json({ message: "Unauthorized" });
@@ -177,3 +177,4 @@ export function deleteCategory(req, res) {
             res.status(500).json({ message: "Failed to update category", error });
         });
 }
+*/

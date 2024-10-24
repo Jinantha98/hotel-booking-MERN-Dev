@@ -1,4 +1,4 @@
-import room from "../models/room";
+import room from "../models/room.js";
 import { isAdminValid } from "./usercontrollers.js";   
 
 // Create Room
@@ -12,7 +12,7 @@ export function createRoom(req,res){
 
     }
 
-    const newRoom = newRoom(req.body)
+    const newRoom = new room(req.body)
     newRoom.save().then(
         (result)=>{
             res.json(
@@ -144,7 +144,7 @@ export function updateRoom(req,res){
 
     const roomId = req.params.roomId
 
-    room.findByIdAndUpdate({
+    room.findOneAndUpdate({
         roomId:roomId
     },req.body).then(
         ()=>{
@@ -163,5 +163,31 @@ export function updateRoom(req,res){
             )
         }
     )
+
+}
+
+//Get roomById
+
+export function getRoomsByCategory(req,res){
+    const category =req.params.category
+
+    room.find({category:category}).then(
+        (result)=>{
+            res.json(
+                {
+                    rooms : result
+                }
+            )
+        }
+    ).catch(
+        ()=>{
+            res.json(
+                {
+                    message : "Failed to get rooms"
+                }
+            )
+        }
+    )
+
 
 }

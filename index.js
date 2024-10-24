@@ -6,6 +6,13 @@ import galleryItemRouter from './routes/galleryItemRoute.js'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import categoryRouter from './routes/categoryRoute.js'
+import roomRouter from './routes/roomRoute.js'
+
+
+
+
+
+
 
 dotenv.config();
 const app = express();
@@ -45,6 +52,8 @@ mongoose.connect(connectionString).then(
 app.use("/api/user",userRouter)
 app.use("/api/gallery",galleryItemRouter)
 app.use("/api/category",categoryRouter)
+app.use("/api/room",roomRouter)
+
 
 
 

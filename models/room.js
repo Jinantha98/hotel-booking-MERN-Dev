@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Category from "./category";
+
 
 const roomSchema = new mongoose.Schema({
 
@@ -37,6 +37,6 @@ const roomSchema = new mongoose.Schema({
 
 )
 
-const room = mongoose.model("Rooms",roomSchema)
+const Room = mongoose.model("Rooms",roomSchema)
 
-export default room;
+export default Room;

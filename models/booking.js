@@ -13,7 +13,7 @@ const bookingSchema = new mongoose.Schema(
       },
     
     email :{
-      type : Stringr,
+      type : String,
       required : true
     },
     
@@ -38,10 +38,14 @@ const bookingSchema = new mongoose.Schema(
       required : true
     },
 
-    status :{
+    notes :{
         type : String,
         default : "Pending"
       },
+    timeStamp:{
+      type : Date,
+      default : Date.now
+    }
       
 
     }
